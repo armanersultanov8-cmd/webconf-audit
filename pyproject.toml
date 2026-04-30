@@ -1,0 +1,22 @@
+[project]
+name = "webconf-audit"
+version = "0.1.0"
+description = "Web server configuration security audit tool"
+requires-python = ">=3.10"
+dependencies = [
+    # In the absence of a dedicated oldest-supported CI job, keep the
+    # lower bounds aligned with the dependency set exercised by the
+    # current test environment. Cap the next major so SemVer breakage
+    # does not silently land via a fresh `pip install`.
+    "defusedxml>=0.7,<1.0",
+    "cryptography>=46.0.7,<47",
+    "pydantic>=2.12.5,<3.0",
+    "pyOpenSSL>=26.0.0,<27",
+    "typer>=0.24.1,<1.0",
+]
+
+[project.scripts]
+webconf-audit = "webconf_audit.cli:app"
+
+[tool.ruff]
+line-length = 100

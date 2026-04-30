@@ -1,0 +1,15 @@
+# Intentionally insecure .htaccess for demo/validation purposes.
+# This file triggers several Apache .htaccess rules when analyzed.
+
+# Enables directory listing (apache.htaccess_enables_directory_listing)
+Options +Indexes
+
+# Enables CGI execution (apache.htaccess_enables_cgi)
+Options +ExecCGI
+
+# Removes a security header (apache.htaccess_disables_security_headers)
+Header unset X-Content-Type-Options
+
+# Rewrite without condition (apache.htaccess_rewrite_without_limit)
+RewriteEngine On
+RewriteRule ^old$ /new [R=302,L]

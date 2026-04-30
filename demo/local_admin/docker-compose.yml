@@ -1,0 +1,30 @@
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: webconf-audit-validation-nginx
+    restart: unless-stopped
+    ports:
+      - "18080:80"
+    volumes:
+      - ./nginx:/etc/nginx:ro
+
+  apache:
+    image: httpd:2.4
+    container_name: webconf-audit-validation-apache
+    restart: unless-stopped
+    ports:
+      - "18081:80"
+    volumes:
+      - ./apache/conf:/usr/local/apache2/conf:ro
+
+  lighttpd:
+    build:
+      context: ./lighttpd
+      dockerfile: docker/Dockerfile
+    image: webconf-audit-lighttpd-demo
+    container_name: webconf-audit-validation-lighttpd
+    restart: unless-stopped
+    ports:
+      - "18082:8080"
+    volumes:
+      - ./lighttpd:/etc/lighttpd:ro

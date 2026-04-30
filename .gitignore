@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+src/*.egg-info/
+
+# Virtual environments
+.venv/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Editors and IDEs
+.vscode/
+
+# Local working directory and generated reports
+/.lab/
+/demo/local_admin/reports/
+
+# Local MCP configuration
+.mcp.json
+.mcp.local.json
+
+# Office documents and temp files
+/*.docx
+/~$*.docx
+
+# Local thesis / report drafts
+/prediploma_report_*

@@ -1,0 +1,25 @@
+services:
+  harness:
+    build:
+      context: ./harness
+    ports:
+      - "18080:8080"
+      - "18443:8443"
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "18082:80"
+
+  apache:
+    build:
+      context: ./apache
+    ports:
+      - "18083:80"
+
+  lighttpd:
+    build:
+      context: ./lighttpd
+    ports:
+      - "18084:80"
